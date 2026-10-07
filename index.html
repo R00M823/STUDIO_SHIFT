@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STUDIO SHIFT</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">WORKFORCE MANAGEMENT SUPPORT</p>
+          <h1>STUDIO SHIFT</h1>
+        </div>
+        <div class="actions">
+          <button id="generateShiftButton" class="primary">シフト自動生成</button>
+          <button id="exportCsvButton" class="secondary">CSV出力</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="panel controls-panel">
+          <h2>基本設定</h2>
+          <div class="field-row two-col">
+            <label>
+              <span>対象月</span>
+              <input type="month" id="monthInput" />
+            </label>
+            <label>
+              <span>最低人数</span>
+              <input type="number" id="minStaffInput" min="1" value="2" />
+            </label>
+          </div>
+          <div class="field-row two-col">
+            <label>
+              <span>早番人数</span>
+              <input type="number" id="morningStaffInput" min="1" value="1" />
+            </label>
+            <label>
+              <span>遅番人数</span>
+              <input type="number" id="eveningStaffInput" min="1" value="1" />
+            </label>
+          </div>
+        </section>
+
+        <section class="panel employees-panel">
+          <div class="section-head">
+            <h2>スタッフ情報</h2>
+            <button id="addEmployeeButton" class="secondary small">スタッフ追加</button>
+          </div>
+          <div id="employeeList" class="employee-list"></div>
+        </section>
+
+        <section class="panel schedule-panel">
+          <h2>月間シフト</h2>
+          <div class="table-wrap">
+            <table id="shiftTable"></table>
+          </div>
+        </section>
+
+        <section class="panel alert-panel">
+          <h2>アラート・提案</h2>
+          <ul id="alertList" class="alert-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

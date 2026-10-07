@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --border: #dfe5ee;
+  --primary: #1f6feb;
+  --primary-soft: #e9f1ff;
+  --danger: #d64545;
+  --danger-soft: #fdecec;
+  --warn: #d28a1d;
+  --warn-soft: #fff4dd;
+  --success: #1d8f67;
+  --text: #213041;
+  --muted: #65758a;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button.primary {
+  background: var(--primary);
+  color: white;
+}
+
+button.secondary {
+  background: #edf2fa;
+  color: var(--text);
+}
+
+button.small {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1.1fr 1.9fr;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.controls-panel,
+.employees-panel,
+.alert-panel {
+  grid-column: 1;
+}
+
+.schedule-panel {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+}
+
+.field-row {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input {
+  padding: 9px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.employee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.employee-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fafbfd;
+}
+
+.employee-card .row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.employee-card .row:last-child {
+  margin-bottom: 0;
+}
+
+.employee-card input {
+  width: 100%;
+}
+
+.employee-card .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.remove-button {
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: 0.8rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+#shiftTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+
+#shiftTable th,
+#shiftTable td {
+  border: 1px solid var(--border);
+  padding: 8px 6px;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+#shiftTable th {
+  background: #f3f6fb;
+  position: sticky;
+  top: 0;
+}
+
+#shiftTable td select {
+  width: 100%;
+  padding: 7px 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: white;
+}
+
+.alert-list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alert-list li {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f9fafc;
+  border: 1px solid var(--border);
+}
+
+.alert-list li.warning {
+  background: var(--warn-soft);
+  border-color: #f0d59a;
+}
+
+.alert-list li.danger {
+  background: var(--danger-soft);
+  border-color: #f2b1b1;
+}
+
+.alert-list li.success {
+  background: #eafaf3;
+  border-color: #bfe7d6;
+}
+
+@media (max-width: 980px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .controls-panel,
+  .employees-panel,
+  .alert-panel,
+  .schedule-panel {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
